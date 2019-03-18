@@ -1,0 +1,27 @@
+<div><h1>Adnat</h1></div>
+<div>
+	<h4> 
+		Logged in as <% if current_user %>
+		<%= current_user.name %>
+		<% end %>
+		<%= link_to 'Logout', logout_url , data: { confirm: 'Are you sure' }, method: :delete %>
+	</h4>
+</div>
+<% if @organisation %>
+	<div>
+		<b>
+			<h2>
+				<%= @organisation.name %>
+			</h2>
+		</b>
+	</div>
+	<div>
+				<%= link_to 'View Shifts'%>   
+				<%= link_to 'Edit', edit_organisation_path(@organisation) %>    
+				<%= link_to 'Leave', {:controller => "organisations", :action => "leave"} %>  
+	</div>
+<% end %>
+
+	
+
+</div>    

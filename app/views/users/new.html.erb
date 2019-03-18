@@ -1,0 +1,44 @@
+
+<div><h1>Adnat</h1></div>
+<div><h3>Sign Up</h3></div>
+<%= form_for @user, url: {action: :create} do |f| %>
+<div>
+	<p>   
+	<%= "<div>#{@user.errors.full_messages.first}</div>".html_safe if @user.errors.any? %>   
+		<div>   
+			<label>Name</label>   
+			<%= f.text_field :name, :required => true%>   
+		</div>   
+
+		<div>   
+			<label>Email</label>   
+			<%= f.email_field :email, :required => true%>   
+		</div>   
+
+		<div>   
+			<label>Password</label>
+			<%= f.password_field :password, :class => "password", :id=>"user_password", :required => true %>   
+			<h6>(minimum of 6 characters)</h6>  
+		</div>   
+		<div>   
+			<label>Confirm Password</label>
+			<%= f.password_field :password_confirmation, :class => "password", :id=>"confirm_password", :required => true %> 
+		</div>  
+	</p>   
+</div>   
+<div >   
+	<%= link_to 'Log in', root_url,  :class => "btn btn-primary" %> 
+	<%= f.submit 'Sign up' %>   
+</div>   
+<% end %>   
+
+<script>
+	$( document ).ready(function() {
+    $("#btn_submit").on('click', function(event) {
+    	if($("#user_password").val() != $("#confirm_password").val()){
+    		alert("Passwords does not match");
+    		event.preventDefault();
+    	}
+    });
+  });
+</script>

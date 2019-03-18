@@ -1,0 +1,43 @@
+<!DOCTYPE html>   
+<html>   
+<body>   
+ <div class="container">   
+<div><h1>Adnat</h1></div>
+<div>
+	<h4> 
+		Logged in as <% if current_user %>
+		<%= current_user.name %>
+		<% end %>
+		<%= link_to 'Logout', logout_url , data: { confirm: 'Are you sure' }, method: :delete %>
+	</h4>
+</div>
+<% if @organisation %>
+	<div>
+		<b>
+			<h2>
+				<%= @organisation.name %>
+			</h2>
+		</b>
+	</div>
+<% end %>
+</div>     
+      <br>   
+    <table border="2">   
+      <thead>   
+      <tr>   
+        <th>Employee Name</th>   
+        <th>Shift Date</th>   
+        <th>Start Time</th>   
+        <th>Finish Time</th>
+        <th>Break Length (minutes)</th>
+        <th>Hours Worked</th>
+        <th>Shift Cost</th>
+      </tr>   
+      </thead>   
+      <tbody>   
+  
+      </tbody>   
+    </table>   
+    </div>   
+  </body>   
+</html>  
